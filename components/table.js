@@ -1,14 +1,14 @@
 import {sales} from '@/data'
 
-export function ReportTable (props){
+export function ReportTable ({response,handleDelete}){
 let sum_ = 0
 sales.map((x)=> sum_+= x)
     return(
-        <div className='flex justify-center my-5'>
+        <div className='flex justify-center mt-20 rounded'>
         {
 
-            props.data[0] ? (
-            <table class='table-fixed '>
+            response ? (
+            <table className='rounded '>
                 
                 <tr className='border-black bg-lime-600'>
                     
@@ -33,22 +33,22 @@ sales.map((x)=> sum_+= x)
                     
                 
                 
-                {props.data.map((x)=>
-                <tr className='border bg-lime-400'>{x}
+                {response.map((x)=>
+                <tr className='text-center border bg-lime-400'>{x.location}<span onClick={()=>handleDelete(x.id)}>[x]</span>
                 {sales.map((x)=>
                 <td className='border'>{x}</td>
                 )}
-                <td className='border'>{sum_}</td>
+                <td className='text-center border'>{sum_}</td>
                 </tr>)}
                 
                 
-                <tr className='border bg-lime-600'>
+                <tr className='text-center border bg-lime-600'>
                     Total
                     {sales.map(x=>(
-                        <td className='border'>{x*props.data.length}</td>
+                        <td className='text-center border'>{x*response.length}</td>
 
                     ))}
-                    <th>{516*props.data.length}</th>   
+                    <th>{516*response.length}</th>   
 
                 </tr>
 
