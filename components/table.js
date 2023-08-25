@@ -4,11 +4,11 @@ export function ReportTable ({response,handleDelete}){
 let sum_ = 0
 sales.map((x)=> sum_+= x)
     return(
-        <div className='flex justify-center mt-20 rounded'>
+        <div className='my-20'>
         {
 
             response ? (
-            <table className='rounded '>
+            <table className='rounded mx-auto w-3/4'>
                 
                 <tr className='border-black bg-lime-600'>
                     
